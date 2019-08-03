@@ -65,6 +65,27 @@ class AuthorController extends Controller
      * @return Illuminate\Http\Response
      */
     public function update(Request $request, $author){
+        $rules =  [
+            'name' => 'max:255',
+            'gender' => 'max:255|in:male,female',
+            'country' => 'max:255',
+        ];
+
+        $this->validate($request, $rules);
+
+        $author = Author::findOrFail($author);
+
+        $author->fill($request->all());
+
+        //verifica si cambio algo en los datos del autor
+        if ($author->isClean()) {
+            return $this->errorResponse('Al menos un valor debe ser cambiado', Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        $author->save();
+
+        return $this->successResponse($author);
+
 
     }
 
