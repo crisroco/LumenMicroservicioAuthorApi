@@ -10,10 +10,10 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
-
+$ruta = '/authors/{author}';
 $router->get('/authors','AuthorController@index');
 $router->post('/authors','AuthorController@store');
-$router->get('/authors/{author}','AuthorController@show');
-$router->put('/authors/{author}','AuthorController@update');
-$router->patch('/authors/{author}','AuthorController@update');
-$router->delete('/authors/{author}','AuthorController@destroy');
+$router->get($ruta,'AuthorController@show');
+$router->put($ruta,'AuthorController@update');
+$router->patch($ruta,'AuthorController@update');
+$router->delete($ruta,'AuthorController@destroy');
