@@ -50,6 +50,11 @@ class Controller extends BaseController
                 $authors = 'nice';
             }
         }
+        foreach ($test as $key => $value) {
+            if ($value == 'lilili') {
+                $authors = 'nice';
+            }
+        }
 
         return $this->successResponse($authors);
     }
