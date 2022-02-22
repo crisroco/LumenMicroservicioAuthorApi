@@ -226,6 +226,36 @@ class AuthorController extends Controller
 
     }
 
+     /**
+     * Update the information of an existing Author2
+     * @return Illuminate\Http\Response
+     */
+    public function update2(Request $request, $author){
+        $rules =  [
+            'name' => 'max:255',
+            'gender' => 'max:255|in:male,female',
+            'country' => 'max:255',
+        ];
+
+        $this->validate($request, $rules);
+
+        // se verifica si el autor existe antes de hacer el update
+        $author = Author::findOrFail($author);
+
+        $author->fill($request->all());
+
+        //verifica si cambio algo en los datos del autor
+        if ($author->isClean()) {
+            return $this->errorResponse('Al menos un valor debe ser cambiado', Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        $author->save();
+
+        return $this->successResponse($author);
+
+
+    }
+
     /**
      * Destroy an existing Author
      * @return Illuminate\Http\Response
