@@ -61,6 +61,61 @@ class AuthorController extends Controller
     }
 
     /**
+     * Return an specific Author2
+     * @return Illuminate\Http\Response
+     */
+    public function show2($author){
+        $author = Author::findOrFail($author);
+        return $this->successResponse($author);
+    }
+
+    /**
+     * Return an specific Author3
+     * @return Illuminate\Http\Response
+     */
+    public function show3($author){
+        $author = Author::findOrFail($author);
+        return $this->successResponse($author);
+    }
+
+
+    /**
+     * Return an specific Author4
+     * @return Illuminate\Http\Response
+     */
+    public function show4($author){
+        $author = Author::findOrFail($author);
+        return $this->successResponse($author);
+    }
+
+    /**
+     * Return an specific Author5
+     * @return Illuminate\Http\Response
+     */
+    public function show5($author){
+        $author = Author::findOrFail($author);
+        return $this->successResponse($author);
+    }
+
+    /**
+     * Return an specific Author6
+     * @return Illuminate\Http\Response
+     */
+    public function show6($author){
+        $author = Author::findOrFail($author);
+        return $this->successResponse($author);
+    }
+    
+    /**
+     * Return an specific Author7
+     * @return Illuminate\Http\Response
+     */
+    public function show7($author){
+        $author = Author::findOrFail($author);
+        return $this->successResponse($author);
+    }
+
+    /**
      * Update the information of an existing Author
      * @return Illuminate\Http\Response
      */
